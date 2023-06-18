@@ -7,26 +7,22 @@
  * @param {num} target
  * @return {num[]}
  */
-const twoSum = (nums,target) => {
-    /**
-     * TODO:配列をソートする
-     */
-    const reorderNums = nums.sort((a,b) => a - b)
-    console.log(reorderNums)
+const twoSum = (nums,target) => { 
     /**
      * TODO: targetまでの数値をループさせる
      */
-    for(let pointer = 0; reorderNums[pointer] < target; pointer++){
+    for(let pointer = 0; pointer < nums.length; pointer++){
         /**
-         * TODO: 低い値にポインタを置いて、全部足して比較していく
+         * TODO: targetから現在のポインタの要素を引いて、足し算してtargetにするために必要な値を記憶する
          */
-        for(let compare = 1; reorderNums[compare] < target; compare++){
+        const complement = target - nums[pointer]
+        for(let next = (pointer + 1); next < nums.length; next++){
             /**
-             * TODO: targetになる組み合わせの添字を配列化して返す
+             * TODO: 足し算してtargetにするために必要な値だったら return で添字の組み合わせを返す
              */
-            if(reorderNums[pointer] + reorderNums[compare] === target) return [pointer,compare]
+            if(nums[next] === complement) return [pointer,next]
         }
     }
 }
 
-console.log(twoSum([2,3,4,7,12,24,60],11))
+console.log(twoSum([5,0,2,6,12,24,0],0))
