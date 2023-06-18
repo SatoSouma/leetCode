@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "format": "rome format --write ."
+  },
+  "devDependencies": {
+    "rome": "^12.1.3"
+  }
+}
